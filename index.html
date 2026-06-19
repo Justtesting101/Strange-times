@@ -520,6 +520,156 @@
     color: var(--text);
   }
 
+  /* ── SESSION GUIDE ── */
+  .area-card {
+    background: linear-gradient(135deg, rgba(42,32,24,0.6), rgba(26,18,8,0.5));
+    border: 1px solid var(--gold-dim);
+    border-radius: 2px;
+    margin: 2rem 0;
+    overflow: hidden;
+  }
+  .area-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: clamp(0.75rem,3vw,1.25rem) clamp(1rem,3vw,1.75rem);
+    background: rgba(201,150,58,0.07);
+    border-bottom: 1px solid var(--gold-dim);
+  }
+  .area-number {
+    font-family: 'Cinzel', serif;
+    font-size: 0.52rem;
+    letter-spacing: 0.2em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .area-header h3 { margin: 0; }
+  .area-body { padding: clamp(1rem,3vw,2rem) clamp(1rem,3vw,1.75rem); }
+  .read-aloud {
+    background: rgba(13,10,8,0.6);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 2px 2px 0;
+    padding: clamp(1rem,3vw,1.75rem);
+    margin: 1rem 0 1.5rem;
+  }
+  .read-aloud::before {
+    content: 'READ ALOUD';
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.5rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    opacity: 0.75;
+  }
+  .read-aloud p { font-style: italic; color: var(--text); margin-bottom: 0.75rem; }
+  .read-aloud p:last-child { margin-bottom: 0; }
+  .dm-note {
+    background: rgba(42,32,24,0.5);
+    border: 1px dashed var(--gold-dim);
+    border-radius: 2px;
+    padding: clamp(0.75rem,2vw,1.25rem) clamp(1rem,2vw,1.5rem);
+    margin: 1rem 0;
+    font-size: clamp(0.8rem,1.8vw,0.92rem);
+    color: var(--muted);
+  }
+  .dm-note-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.5rem;
+    letter-spacing: 0.25em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .check-list { list-style: none; margin: 0.75rem 0; }
+  .check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(0.8rem,1.8vw,0.92rem);
+  }
+  .dc-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
+    color: var(--parchment);
+    background: var(--gold-dim);
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+  .discovery-box {
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    background: rgba(201,150,58,0.06);
+    border: 1px solid rgba(201,150,58,0.2);
+    border-radius: 2px;
+    font-size: clamp(0.8rem,1.8vw,0.92rem);
+  }
+  .discovery-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.5rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .combat-banner {
+    background: linear-gradient(135deg, rgba(80,20,20,0.45), rgba(40,10,10,0.35));
+    border: 1px solid rgba(180,50,50,0.3);
+    border-left: 3px solid #a93226;
+    padding: clamp(1rem,3vw,1.75rem);
+    margin: 1rem 0;
+    border-radius: 0 2px 2px 0;
+  }
+  .combat-banner-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.5rem;
+    letter-spacing: 0.3em;
+    color: #c0392b;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+  .session-ending {
+    background: linear-gradient(135deg, rgba(13,10,8,0.9), rgba(26,18,8,0.8));
+    border: 1px solid var(--gold);
+    border-radius: 2px;
+    padding: clamp(1.5rem,4vw,3rem);
+    margin: 2.5rem 0;
+    text-align: center;
+  }
+  .session-review {
+    background: linear-gradient(135deg, rgba(42,32,24,0.7), rgba(26,18,8,0.5));
+    border: 1px solid var(--gold-dim);
+    border-radius: 2px;
+    padding: clamp(1.5rem,4vw,2.5rem);
+    margin: 2.5rem 0;
+  }
+  .review-stars {
+    font-size: 1.4rem;
+    color: var(--gold);
+    letter-spacing: 0.25rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .review-category {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-top: 1.25rem;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
   /* ── SCROLL REVEAL ── */
   .reveal {
     opacity: 0;
@@ -540,6 +690,7 @@
   <a href="#party">The Party</a>
   <a href="#world">The Island</a>
   <a href="#mysteries">Mysteries</a>
+  <a href="#session1">Session One</a>
 </nav>
 
 <!-- HERO -->
@@ -872,6 +1023,246 @@
         <p>Each school corresponds to a distinct color aura the party may begin to glimpse around themselves and each other. As the campaign progresses, the colors become more visible to those with arcane sight — and to those who built the island, a beacon.</p>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="rune-divider">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+<!-- SESSION ONE -->
+<div id="session1" style="background: rgba(0,0,0,0.15);">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-label">DM Guide</div>
+      <h2>Session One — Parable Seven</h2>
+      <p>A full breakdown of Session 1 with read-aloud text, DM notes, skill checks, and discoveries. The party wakes with no memory, no answers, and gifts they don't yet understand.</p>
+    </div>
+
+    <!-- AREA 1 -->
+    <div class="area-card reveal">
+      <div class="area-header">
+        <span class="area-number">Area 1</span>
+        <h3>The Well of Seven</h3>
+      </div>
+      <div class="area-body">
+        <div class="read-aloud">
+          <p>A strange humming sound overloads your senses. The vibration resonates in your body, startling you from a deep slumber. You open your eyes — vision blurry, the room ill-lit with very low visibility. It smells dank and cold, like dry sweat and fog. Light slowly filters in through a small circular hole in the ceiling.</p>
+          <p>As awareness returns and your vision sharpens, you realize you are restrained in a large metal cradle — arms, waist, ankles, and neck all strapped in place. Your gear and weapons are gone. You are all wearing the same dull beige cloth tunic and short pants in different sizes. The humming fades. More light pours in.</p>
+          <p><em>Lucia — as the light pours into the chamber, you in particular have a very hard time keeping your eyes open. It is intensely painful, like looking straight at the sun. You blink hard and the sensation fades. A single tear streams from one eye.</em></p>
+          <p>You all notice strange clear flesh-like tubes running along the ceiling in different directions, ending in what appears to be the fang of a serpent puncturing the front of your left forearm just below the elbow. All seven tubes run outward from the center hole, dropping down near cradles like yours, spaced evenly in a circle. In some of those cradles, shadowy figures are waking — taking in their surroundings just as you are.</p>
+          <p><em>Roscoe — as you come out of your blurry slumber you hear something. A nervously tense man's voice says, "I need to get out of here… they need to get out of here!"</em></p>
+          <p>The humming fades entirely. You feel a slight tug — then with a wet <em>splat</em>, all seven tubes drop through the hole and hang swaying in the center of the room, dripping a thick silver residue onto the immaculately carved stone floor. Strange runes and glyphs cover the floor where the light falls brightest. Behind each cradle sits a wooden chest. Your equipment — and your answers — wait to be found.</p>
+        </div>
+
+        <div class="dm-note">
+          <span class="dm-note-label">DM Notes</span>
+          The chamber is round with a slightly inclined ceiling rising toward the center hole (15ft diameter). The room is 60ft in diameter. The walls emit a faint silver/blue light. The wooden chamber door is locked from the outside. Each wooden chest behind a cradle contains that character's gear and weapons.
+        </div>
+
+        <h3 style="margin-top:1.5rem;">Skill Checks</h3>
+        <ul class="check-list">
+          <li><span class="dc-badge">DC 12 STR</span><span>Break the locked chamber door open (or deal 30 HP damage to it).</span></li>
+          <li><span class="dc-badge">DC 10 PER</span><span>Notice there are seven cradles but only six were occupied when the party woke. The seventh cradle sits empty — its tube lies on the ground beside it.</span></li>
+          <li><span class="dc-badge">DC 12 PER / DC 10 INV</span><span>The leather straps on the empty seventh cradle are still buckled and looped as if something was strapped in and never released normally.</span></li>
+          <li><span class="dc-badge">DC 13 ARC</span><span>The runes on the floor correspond to the eight schools of arcane magic — but their arrangement is unlike any tradition or formation you've encountered.</span></li>
+        </ul>
+
+        <div class="discovery-box">
+          <span class="discovery-label">Potential Discoveries</span>
+          The silver residue from the tubes has no smell and doesn't react to fire or heat. A character who searches themselves carefully (DC 10 Perception) will find a small arcane tattoo behind their ear — three digits, 001 through 006. They are catalogued. They just don't know what that means yet.
+        </div>
+      </div>
+    </div>
+
+    <!-- AREA 2 -->
+    <div class="area-card reveal">
+      <div class="area-header">
+        <span class="area-number">Area 2</span>
+        <h3>The Corridor</h3>
+      </div>
+      <div class="area-body">
+        <div class="read-aloud">
+          <p>Outside the circular chamber stretches a long stone corridor carved from the same immaculate stone. The walls carry the same faint magical resonance as the chamber — humming just below the threshold of hearing. The corridor runs 100 feet ahead of you, 15 feet tall and 10 feet wide, lit only by the pale glow of the stone itself.</p>
+          <p>Halfway down on the right: an unlocked wooden door. At the far end: a spiral staircase descends into deeper darkness. Beside it, a short stairway climbs up to a wooden hatch above.</p>
+        </div>
+        <div class="dm-note">
+          <span class="dm-note-label">DM Notes</span>
+          The corridor is the hub connecting all remaining areas. The unlocked door (right, halfway) leads to Area 3 — the lab. The spiral stair (far end) descends to Area 5 — the mass grave. The short stairway (far end) ascends through a hatch to Area 4 — the surface meadow.
+        </div>
+      </div>
+    </div>
+
+    <!-- AREA 3 -->
+    <div class="area-card reveal">
+      <div class="area-header">
+        <span class="area-number">Area 3</span>
+        <h3>The Strange Lab</h3>
+      </div>
+      <div class="area-body">
+        <div class="read-aloud">
+          <p>The unlocked door opens into a chamber that stops you cold. One entire wall is lined with morgue drawers, floor to ceiling. Along another, operating tables are arranged in a row — some bearing draped bodies. The air smells of chemical preservation and something older. Cave earth. Copper.</p>
+          <p>In the far corner, an arcane desk sits beneath a lamp that flickers with a faint bluish light. Jars and vials crowd the surface — some containing what appear to be fragments of mind flayer parasites, some of those fragments whole and intact. A vial of dark, thick liquid that smells unmistakably of blood has been knocked over, its contents still spreading slowly across the wood.</p>
+          <p>On a metal tray: a scalpel and what appear to be tiny, carefully cut pieces of brain matter. A leather pouch holds worn surgical tools — some that once seemed arcane in nature, their enchantments now faded or broken.</p>
+          <p>Near the desk, toppled backward in a wooden chair, is a dead Githyanki in a lab coat. Near one of the operating tables, a dead changeling researcher lies facedown on the stone floor, cheek against the table leg as if they simply fell where they stood.</p>
+        </div>
+
+        <div class="dm-note">
+          <span class="dm-note-label">DM Notes</span>
+          Every body in the morgue drawers and on the tables is a dead changeling. Each has a five-digit number tattooed on the upper right arm near the shoulder, marked with arcane ink. The two researchers in lab coats have no tattoos, no visible injuries, and haven't been dead long. <strong>007 killed them on his way out.</strong> His reasons are unknown. The party doesn't know this yet — and may never know, unless they piece it together later.
+        </div>
+
+        <h3 style="margin-top:1.5rem;">Skill Checks</h3>
+        <ul class="check-list">
+          <li><span class="dc-badge">DC 10 INV</span><span>Find the medical journal on the desk. Among illegible formulas and anatomical drawings of multiple species, one entry reads clearly: <em>"Subject 007 is responding to arcane resonance at an alarming rate yet he remains unstable. Studies are inconclusive. Remember to discuss this with Dr. Orwell when he decides to visit again."</em></span></li>
+          <li><span class="dc-badge">DC 12 MED</span><span>The two researchers in lab coats have been dead only a few hours. There are no visible injuries. No obvious cause of death.</span></li>
+          <li><span class="dc-badge">DC 15 ARC</span><span>The number tattoos on the changeling bodies are arcane cataloguing sigils — sophisticated tracking and identification marks. Someone was keeping meticulous records.</span></li>
+          <li><span class="dc-badge">DC 13 ARC</span><span>The mind flayer parasites in the jars have been modified. Something was extracted from them, or introduced into them. Their natural lifecycle has been deliberately altered.</span></li>
+        </ul>
+
+        <div class="discovery-box">
+          <span class="discovery-label">Potential Discoveries</span>
+          A character searching the drawers will find all bodies numbered sequentially. The highest number found is in the thousands. Whatever happened here, it happened to a great many beings over a very long time.
+        </div>
+      </div>
+    </div>
+
+    <!-- AREA 4 -->
+    <div class="area-card reveal">
+      <div class="area-header">
+        <span class="area-number">Area 4</span>
+        <h3>The Meadow — Surface</h3>
+      </div>
+      <div class="area-body">
+        <div class="read-aloud">
+          <p>The wooden hatch opens into warm, humid air. You emerge through a large arched opening in a massive boulder. After the stone and shadow below, the sudden openness is almost overwhelming.</p>
+          <p>Not far ahead: a ring of smooth stone at ground level — the top of a large well. You recognize it. You were at the bottom of it.</p>
+          <p>Surrounding the well is a broad clearing of lush tropical meadow, impossibly vibrant. Beyond it in every direction: dense jungle, wall to wall, blotting out the horizon and the view of anything distant.</p>
+          <p>You tilt your head upward — and up, and further still — to the only landmark you can find. A massive stone spire shatters the jungle canopy and climbs thousands of feet into the air, piercing the clouds. It leans at a slight angle, catching the sunlight in a way no natural stone ever should. You are a very long way from anywhere you have ever been.</p>
+        </div>
+        <div class="dm-note">
+          <span class="dm-note-label">DM Notes</span>
+          This is a moment of awe, not threat. Let the players breathe. There are no immediate dangers in the meadow. The Stonespire should be described as genuinely disorienting in scale. The forest surrounding the meadow is nearly impenetrable without finding a path.
+        </div>
+        <div class="discovery-box">
+          <span class="discovery-label">Potential Discoveries</span>
+          DC 12 Survival or Nature: The plant life in this meadow doesn't match any known ecosystem on the Sword Coast or Faerûn's tropical regions. Some species appear to be hybrids or magically cultivated. This island was not naturally formed.
+        </div>
+      </div>
+    </div>
+
+    <!-- AREA 5 -->
+    <div class="area-card reveal">
+      <div class="area-header">
+        <span class="area-number">Area 5</span>
+        <h3>The Mass Grave</h3>
+      </div>
+      <div class="area-body">
+        <div class="read-aloud">
+          <p>The spiral staircase descends for a long time. The smell reaches you before the sight does — death, deep and old, laced with incense that was never strong enough for the work it was meant to mask.</p>
+          <p>The staircase opens into a massive natural cavern. Your torchlight doesn't reach the far wall. What it does reach are the bodies — changeling bodies, hundreds of them, in various stages of decomposition, laid or fallen across the cavern floor. All numbered. All silent. The scale of what was done here is difficult to hold in the mind.</p>
+          <p>On the far side, a narrow cave mouth leads into deeper darkness. Following it, at its end, pressed against a fast underground river with ceilings too low to swim without going fully under, is a makeshift shelter. A cold fire pit with no ash. A bedroll. A small leather bag.</p>
+        </div>
+        <div class="dm-note">
+          <span class="dm-note-label">DM Notes</span>
+          The camp once belonged to a changeling test subject — mistaken for dead long enough to be thrown in the mass grave, who survived and hid in the caves. Their current whereabouts and condition are unknown. They were mapping the underground river system, looking for a way off the island. <strong>Whether they found one is a thread for later.</strong>
+        </div>
+
+        <h3 style="margin-top:1.5rem;">Skill Checks</h3>
+        <ul class="check-list">
+          <li><span class="dc-badge">DC 12 PER</span><span>Spot the narrow offshoot cave mouth leading deeper into the cavern.</span></li>
+          <li><span class="dc-badge">DC 10 INV</span><span>The fire pit has no ash — it was cleaned deliberately, not simply left unused.</span></li>
+          <li><span class="dc-badge">DC 14 HIS / ARC</span><span>The squiggly lines on the back of the parchment are a crude but functional map of underground waterways — someone was tracking the river system beneath the island, searching for a route out.</span></li>
+        </ul>
+
+        <div class="discovery-box">
+          <span class="discovery-label">Leather Bag Contents</span>
+          A small metal pot. A rusty knife and two-pronged fork. A piece of parchment bearing a charcoal sketch of a changeling woman with two children at her side. On the reverse: a network of connected lines mapping underground waterways.
+        </div>
+      </div>
+    </div>
+
+    <!-- AREA 6 -->
+    <div class="area-card reveal">
+      <div class="area-header">
+        <span class="area-number">Area 6</span>
+        <h3>Edge of the Forest</h3>
+      </div>
+      <div class="area-body">
+        <div class="read-aloud">
+          <p>Wherever the party attempts to enter the treeline, the forest resists. Vines thicker than arms, thorns layered across everything, root systems rising and tangling underfoot, canopy so dense the light becomes a rumor. Moving through this without a path would take hours to cover dozens of feet.</p>
+          <p>Near where they push in, however — a game trail. Narrow, worn, but clear. Something uses this path regularly. Shortly after taking to it, the underbrush goes quiet in a way that isn't natural.</p>
+        </div>
+
+        <div class="combat-banner">
+          <span class="combat-banner-label">⚔ Combat Encounter — Ogzul's Pack</span>
+          <p style="margin:0 0 0.5rem; font-size:clamp(0.8rem,1.8vw,0.95rem);">The party is set upon by a pack of elemental dire wolves led by <strong>Ogzul</strong> — a dire wolf that escaped an experimental lab elsewhere on the island and bred an unusual pack. These are not normal dire wolves. Their coats carry elemental traits: stone-grey plating, frost-tinged fur, ember-lit eyes. They move with unsettling intelligence.</p>
+          <p style="margin:0; font-size:clamp(0.78rem,1.8vw,0.88rem); color:var(--muted); font-style:italic;">This is the only combat encounter in Session 1.</p>
+        </div>
+
+        <h3 style="margin-top:1.5rem;">Skill Checks</h3>
+        <ul class="check-list">
+          <li><span class="dc-badge">DC 13 PER</span><span>Hear movement in the underbrush before the wolves emerge — the party is not surprised.</span></li>
+          <li><span class="dc-badge">DC 15 NAT</span><span>These aren't normal dire wolves. Their elemental mutations suggest exposure to the same arcane environment that pervades this island.</span></li>
+        </ul>
+
+        <div class="dm-note">
+          <span class="dm-note-label">DM Notes</span>
+          This encounter should feel survivable but genuine. Ogzul acts last — watching, circling, evaluating. If his pack is sufficiently reduced, he withdraws rather than fight to the death. His intelligence is unsettling. He may be a recurring presence throughout the campaign, not simply a combat obstacle.
+        </div>
+      </div>
+    </div>
+
+    <!-- AREA 7 -->
+    <div class="area-card reveal">
+      <div class="area-header">
+        <span class="area-number">Area 7</span>
+        <h3>The Abandoned Campsite</h3>
+      </div>
+      <div class="area-body">
+        <div class="read-aloud">
+          <p>As night begins to settle over the island, the game trail leads to a small natural shelter — a low cave formed beneath a massive boulder set into the root system of a Kapok tree of extraordinary size. The tree splits above the roots into two great trunks that eventually rejoin into a single canopy far above. The cave is dry and sheltered, and has clearly been used before, though long ago. No supplies remain. But it is defensible, and the darkness outside is total. The choice is clear.</p>
+          <p>This is where they make camp. This is where the session ends.</p>
+        </div>
+        <div class="dm-note">
+          <span class="dm-note-label">DM Notes</span>
+          Let the party settle and breathe. Let them talk to each other — compare notes on the tattoos behind their ears, process what they saw in the mass grave, share what they know. Don't rush to the ending. Let it arrive naturally as Roscoe drifts toward sleep.
+        </div>
+      </div>
+    </div>
+
+    <!-- SESSION ENDING -->
+    <div class="session-ending reveal">
+      <div class="section-label" style="justify-content:center; margin-bottom:1rem;">End of Session One</div>
+      <h2 style="margin-bottom:1.5rem;">The Voice in the Dark</h2>
+      <div class="scene-card" style="text-align:left; max-width:700px; margin:0 auto;">
+        <p>As you settle in and finally calm your nerves, your minds still race, making sleep uneasy. Just as you finally begin to drift into a slumber, you hear Roscoe speak softly.</p>
+        <p><em>Roscoe — as you begin to drift, a shaky voice cuts through the silence. Oddly, this voice sounds like an echo or a memory, and even though you have never heard these words before, you somehow speak them softly as you hear them:</em></p>
+        <p style="color:var(--gold); font-style:italic; font-size:clamp(1rem,2.5vw,1.15rem); margin: 1.25rem 0;">"Good! You made it out of that place. Don't trust anyone! I saw what they were doing to them… I saw what they were doing to <em>us</em>. I…"</p>
+        <p><em>The voice stops.</em></p>
+      </div>
+    </div>
+
+    <!-- SESSION REVIEW -->
+    <div class="session-review reveal">
+      <div class="section-label">DM Review</div>
+      <h2>Session One — Rating &amp; Notes</h2>
+      <span class="review-stars">★ ★ ★ ★ ★</span>
+
+      <span class="review-category">Premise</span>
+      <p>An exceptional foundation. The amnesia hook is familiar in tabletop RPGs, but what elevates Strange Times is the specificity of the horror underneath it — the numbered changeling bodies, the modified mind flayer parasites, the empty seventh seat. This isn't darkness without purpose. It hands players fragments and trusts them to want more.</p>
+
+      <span class="review-category">Session Structure</span>
+      <p>Session One is deliberately light on combat — one encounter in Area 6 — and heavy on environmental mystery. This is a strong choice. Player energy is better spent processing what they see than fighting through it. The areas escalate in weight: the lab is unsettling, the mass grave is genuinely disturbing, the meadow is a breath of air, and the campsite is earned rest before the gut-punch ending.</p>
+
+      <span class="review-category">Character Integration</span>
+      <p>The individual callouts — Lucia's reaction to the light, Roscoe's voice at both waking and sleep — are surgical. They give players a personal thread without locking anyone out of the central mystery. The gifts, discovered gradually rather than explained upfront, reward curiosity and create organic "wait, what just happened?" moments at the table.</p>
+
+      <span class="review-category">Campaign Premise</span>
+      <p>Strange Times earns its name. A secret island built by magic, a facility running experiments the rest of Faerûn doesn't know exist, characters chosen for reasons they can't remember — and an NPC who got out first, whose nature as a changeling means he could be anyone. The arc ahead has genuine scope. The question of what was done to them, and why, is compelling enough to carry a full campaign.</p>
+
+      <span class="review-category">Recommendation for DMs</span>
+      <p>Move slowly. Let the silence in the mass grave sit. Let Roscoe's player actually speak the words at the end. Don't explain the voice. Don't explain 007. The strength of this session is what it withholds. <em>Run it like a horror film that hasn't decided what kind of horror it is yet.</em></p>
+    </div>
+
   </div>
 </div>
 
