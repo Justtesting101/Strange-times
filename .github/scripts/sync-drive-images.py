@@ -49,9 +49,16 @@ with tempfile.TemporaryDirectory() as tmp:
 
     downloaded, skipped = [], []
 
+    IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg"}
+
     for src in sorted(all_files):
         clean = sanitize(os.path.basename(src))
         dest = os.path.join("images", clean)
+
+        # Skip non-image files (docs, spreadsheets, etc. from the same folder)
+        if not any(clean.endswith(ext) for ext in IMAGE_EXTS):
+            print(f"  skip  {os.path.basename(src)}  (not an image)")
+            continue
 
         # Skip tiny files — likely an error/redirect page, not a real image
         if os.path.getsize(src) < 2048:
