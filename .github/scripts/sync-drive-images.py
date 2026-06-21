@@ -28,7 +28,7 @@ os.makedirs("images", exist_ok=True)
 with tempfile.TemporaryDirectory() as tmp:
     print(f"Fetching folder {FOLDER_ID} ...")
     result = subprocess.run(
-        ["gdown", "--folder", "--remaining-ok", FOLDER_ID, "-O", tmp],
+        ["gdown", "--folder", FOLDER_ID, "-O", tmp],
         capture_output=True,
         text=True,
     )
