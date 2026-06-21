@@ -1,66 +1,72 @@
 """
-Downloads images from the Strange Times Google Drive folder into images/.
-Each Drive file ID maps to a clean local filename.
-To add new images: append to the IMAGES dict below.
+Downloads every image in the Strange Times Google Drive images folder.
+Just add an image to the Drive folder and re-run the workflow — no code changes needed.
+Filenames are sanitized to lowercase-with-hyphens for web use.
 """
 
 import os
+import re
+import shutil
 import subprocess
 import sys
+import tempfile
 
-IMAGES = {
-    # Session area images
-    "1MngNxIxy19izbLzt6CkMrUTIw8nqC5ba": "mass-grave.png",
-    "1x6HWOWNmYBLZlydDrE_c0mkU6LkkvOHp": "strange-lab.png",
-    "1szueg-Axuwslj5hE9ICcy1wwd053D-VG":  "ogzul-pack.png",
-    "1ENCRaZuqVU96C7Fpr8sIJxX7cjHdRpAd": "ogzul-pack-alt.png",
-    "1MS49xAhS2Ab-kWvK6pgSaBJaT0bXYg4B": "ogzul-and-pack.png",
-    # Session cover
-    "1WX2FmSlRJOqoU61Rk3-EVVrvEewX5Sow": "session1-cover.png",
-    "10zw2ZZXUVQJBcZNqbC8pUdZcmojAGl-w": "session1-cover-tall.png",
-    # Subject Seven
-    "1UkdZLjY_dohASyD3IB8Rv70CAXtWISYt": "seven-human.png",
-    "1QNzassn5wXVuYv8FtLlQbZjFLuCZv8V_": "seven-character-card.png",
-    # Character card art (physical cards photographed)
-    "1ea5v6F8NyqsUcteSJLR2hbDK_VEE8ind": "lucien-card.jpg",
-    "17KXdMpn_mrDCQDb0_Qeg5zIfPPi0ziY_": "drogath-card.jpg",
-    "1zS2bxaioFqGug5cl_DK2B7vbWV8XQw8L": "vaelis-card.jpg",
-    # Misc
-    "12ulLh3103CWfI4Zc1LfNzTW65Z5KhA_k": "mystery.png",
-}
+FOLDER_ID = "1vLxDomJrI2TNngYHlIfr-6jDLxalH6bZ"
+
+
+def sanitize(filename):
+    stem, _, ext = filename.rpartition(".")
+    stem = stem.lower()
+    stem = re.sub(r"['\"]", "", stem)           # drop apostrophes/quotes
+    stem = re.sub(r"[^a-z0-9]+", "-", stem)    # non-alphanumeric → hyphen
+    stem = stem.strip("-")
+    return f"{stem}.{ext.lower()}" if ext else stem
+
 
 os.makedirs("images", exist_ok=True)
 
-failed = []
-skipped = []
-downloaded = []
-
-for file_id, dest in IMAGES.items():
-    path = os.path.join("images", dest)
-    if os.path.exists(path):
-        skipped.append(dest)
-        print(f"  skip  {dest}")
-        continue
-
-    print(f"  down  {dest} ...", flush=True)
+with tempfile.TemporaryDirectory() as tmp:
+    print(f"Fetching folder {FOLDER_ID} ...")
     result = subprocess.run(
-        ["gdown", "--fuzzy", "--no-cookies", file_id, "-O", path],
+        ["gdown", "--folder", "--remaining-ok", FOLDER_ID, "-O", tmp],
         capture_output=True,
         text=True,
     )
-    if result.returncode == 0 and os.path.exists(path) and os.path.getsize(path) > 1024:
-        downloaded.append(dest)
-        print(f"   ok   {dest} ({os.path.getsize(path) // 1024} KB)")
-    else:
-        if os.path.exists(path):
-            os.remove(path)
-        failed.append(dest)
-        print(f"  FAIL  {dest}")
-        if result.stderr:
-            print("        " + result.stderr.strip()[:200])
+    if result.returncode != 0:
+        print("gdown failed:")
+        print(result.stderr[-500:])
+        sys.exit(1)
+
+    # gdown puts files inside a subfolder named after the Drive folder
+    all_files = []
+    for root, _, files in os.walk(tmp):
+        for f in files:
+            all_files.append(os.path.join(root, f))
+
+    if not all_files:
+        print("No files were downloaded.")
+        sys.exit(0)
+
+    downloaded, skipped = [], []
+
+    for src in sorted(all_files):
+        clean = sanitize(os.path.basename(src))
+        dest = os.path.join("images", clean)
+
+        # Skip tiny files — likely an error/redirect page, not a real image
+        if os.path.getsize(src) < 2048:
+            print(f"  skip  {clean}  (file too small, probably an error)")
+            continue
+
+        if os.path.exists(dest):
+            skipped.append(clean)
+            print(f"  skip  {clean}")
+        else:
+            shutil.copy2(src, dest)
+            downloaded.append(clean)
+            print(f"   new  {clean}  ({os.path.getsize(dest) // 1024} KB)")
 
 print()
-print(f"Downloaded: {len(downloaded)}  Skipped: {len(skipped)}  Failed: {len(failed)}")
-if failed:
-    print("Failed files:", ", ".join(failed))
-    sys.exit(1)
+print(f"New: {len(downloaded)}  Already present: {len(skipped)}")
+if downloaded:
+    print("Added:", ", ".join(downloaded))
