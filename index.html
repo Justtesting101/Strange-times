@@ -680,6 +680,145 @@
     opacity: 1;
     transform: none;
   }
+
+  /* ── LOCATION CARD ── */
+  .location-card {
+    background: linear-gradient(135deg, rgba(42,32,24,0.6), rgba(26,18,8,0.5));
+    border: 1px solid var(--gold-dim);
+    border-left: 3px solid var(--gold);
+    border-radius: 2px;
+    padding: clamp(1.2rem,4vw,2rem);
+    margin: 1.75rem 0;
+  }
+  .location-card h3 { margin-bottom: 0.75rem; }
+
+  /* ── STAT BLOCK ── */
+  .stat-block {
+    background: linear-gradient(135deg, rgba(42,32,24,0.8), rgba(26,18,8,0.7));
+    border: 1px solid var(--gold-dim);
+    border-top: 3px solid var(--gold);
+    border-radius: 2px;
+    padding: clamp(1.2rem,3vw,2rem);
+    margin: 2rem 0;
+  }
+  .stat-block-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--gold);
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+  }
+  .stat-block-type {
+    font-family: 'Cinzel', serif;
+    font-size: 0.57rem;
+    letter-spacing: 0.13em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .stat-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    border-top: 1px solid var(--gold-dim);
+    border-bottom: 1px solid var(--gold-dim);
+    padding: 0.65rem 0;
+    margin: 0.85rem 0;
+    font-size: clamp(0.76rem, 1.6vw, 0.88rem);
+  }
+  .stat-line span strong {
+    font-family: 'Cinzel', serif;
+    font-size: 0.56rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.1rem;
+  }
+  .stat-abilities {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.4rem;
+    text-align: center;
+    margin: 0.85rem 0;
+    padding: 0.65rem 0;
+    border-top: 1px solid rgba(201,150,58,0.15);
+    border-bottom: 1px solid rgba(201,150,58,0.15);
+  }
+  @media (max-width: 500px) { .stat-abilities { grid-template-columns: repeat(3, 1fr); } }
+  .stat-abilities .ability {
+    font-family: 'Cinzel', serif;
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .stat-abilities .score { font-size: clamp(0.88rem, 2vw, 1rem); color: var(--text); display: block; }
+  .stat-abilities .modifier { font-size: 0.68rem; color: var(--muted); display: block; }
+  .stat-trait {
+    margin: 0.65rem 0;
+    font-size: clamp(0.8rem, 1.7vw, 0.92rem);
+  }
+  .stat-trait strong {
+    font-family: 'Cinzel', serif;
+    font-size: 0.63rem;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+  }
+  .stat-action-header {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--gold-dim);
+    padding-bottom: 0.35rem;
+    margin: 1.1rem 0 0.65rem;
+  }
+  .cr-badge {
+    display: inline-block;
+    background: var(--gold-dim);
+    color: var(--parchment);
+    font-family: 'Cinzel', serif;
+    font-size: 0.52rem;
+    letter-spacing: 0.08em;
+    padding: 0.18rem 0.55rem;
+    border-radius: 2px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* ── FIGURE CARD ── */
+  .figure-card {
+    background: linear-gradient(135deg, rgba(42,32,24,0.7), rgba(26,18,8,0.6));
+    border: 1px solid var(--gold-dim);
+    border-radius: 2px;
+    margin: 2.5rem 0;
+    overflow: hidden;
+  }
+  .figure-header {
+    padding: clamp(1.5rem,4vw,2.5rem);
+    border-bottom: 1px solid var(--gold-dim);
+    background: rgba(201,150,58,0.05);
+  }
+  .figure-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+  .figure-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 0.57rem;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .figure-body { padding: clamp(1.5rem,4vw,2.5rem); }
+  .figure-body p { font-size: clamp(0.88rem, 2vw, 1rem); }
 </style>
 </head>
 <body>
@@ -689,6 +828,10 @@
   <a href="#opening">Opening</a>
   <a href="#party">The Party</a>
   <a href="#world">The Island</a>
+  <a href="#locations">Locations</a>
+  <a href="#wildthings">Wild Things</a>
+  <a href="#figures">Important Figures</a>
+  <a href="#items">Items &amp; Notes</a>
   <a href="#mysteries">Mysteries</a>
   <a href="#session1">Session One</a>
 </nav>
@@ -1024,6 +1167,436 @@
   </div>
 </div>
 
+<!-- LOCATIONS -->
+<div id="locations">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-label">Stonespire Island</div>
+      <h2>Locations</h2>
+      <p>Created by powerful magic over a long period of time and concealed from the eyes of the world by arcane means, Stonespire Island appears on no map found in Faerûn. What the party knows of the island is only what they can see. What it holds is another matter entirely.</p>
+    </div>
+
+    <div class="location-card reveal">
+      <h3>The Spire</h3>
+      <p>The Stonespire itself is the anchor of the entire island. Created by ancient, powerful magic, it forms the foundation of the otherwise forest-covered landmass — a landmass grown a small section at a time over an extraordinarily long period. The peak often pierces the clouds on overcast days and towers unnaturally high — so high that the summit remains frozen in ice for most of the year.</p>
+      <p>At the very peak, if ever explored, a single ever-flowing wooden bucket lies tipped on its side — frozen to the ground on one end, pouring endlessly off the edge of the highest cliff. The water flows off into the intense winds, turning to a magical mist that shimmers subtly in the light. <em>This is the magic that cloaks the island from the rest of Faerûn.</em></p>
+      <div class="dm-note" style="margin-top:1rem;">
+        <span class="dm-note-label">DM Note</span>
+        The cloaking mechanism can be identified with a high Arcana check. There are many caves, caverns, and hidden Parable Sites inside the Spire, though none are visible from the island below.
+      </div>
+    </div>
+
+    <div class="location-card reveal">
+      <h3>The Shores</h3>
+      <p>On the shores of the island, the remains of old wrecked ships may be found in a few remote locations — and many more lie at the bottom of the sea. Not many have stumbled across Stonespire Island over the centuries, but those who did were quickly silenced before they had the chance to leave and speak of what they saw.</p>
+      <p>There is one functional port hidden inside an isolated spiraling cove — known to very few. On nearly the opposite side of the island, a massive sea cave in a separate cove houses a unique Parable site.</p>
+    </div>
+
+    <div class="location-card reveal">
+      <h3>Parable Facilities</h3>
+      <p><em>Parable Seven</em> — also called "The Well of Seven" — is part of a much larger network of facilities: Wells, strongholds, prisons, special-care medical centers, ritual sites, and many strangely configured structures that all serve a very specific purpose in the <strong>Parable Project</strong>.</p>
+      <p>Parable installations, especially Wells, are almost always located in open meadows — never closer than 500 feet from the surrounding forest walls. The party may or may not learn the overarching plans behind these installations, or the true nature of the Parable Project.</p>
+      <div class="dm-note" style="margin-top:1rem;">
+        <span class="dm-note-label">DM Note</span>
+        At a certain point the party will discover that Parable Installations of some kind exist high up in the Spire — either through early exploration or when a massively modified mind flayer nautiloid ship docks directly into the Spire later in the campaign. There are select few in the Parable program old enough and informed enough to know that "Parable" was not the first iteration of experiments performed on Stonespire Island.
+      </div>
+      <div style="margin-top:1.25rem;overflow:hidden;border-radius:2px;height:clamp(160px,28vw,260px);">
+        <img src="images/nautiloid.png" alt="The Nautiloid" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.4) saturate(0.65);">
+      </div>
+    </div>
+
+    <div class="location-card reveal">
+      <h3>The Forests, Caves &amp; Jungles</h3>
+      <p>The forests on the island are wild — and far from ordinary. Dense jungle, tangled thorny vines, and impenetrable underbrush make navigation nearly impossible, and very painful and slow at best. Within those forests, the party may discover isolated tribes, bands of survivors and hunter-gatherers, and even discrete hidden communities living in the depths of the forests and cave systems of Stonespire Island.</p>
+      <p>There is even rumored to be a group of monks or wizards living high on the Spire, who summit the peak on rare and eventful occasions. Some tribes and communities descended from escaped captives and test subjects — few know their own lineage, as their history was lost or deliberately hidden. Most live simple, sheltered lives, often avoiding exploration out of both creed and necessity.</p>
+      <p>Most tribes on the island share a belief that the Spire was raised by a god or gods, depending on the tale. One tribe near the base of the Spire has come to believe the Spire itself is their deity — it resonates a magical healing energy that soothes the spirit.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WILD THINGS -->
+<div id="wildthings" style="background: rgba(0,0,0,0.2);">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-label">Creatures of Stonespire</div>
+      <h2>Wild Things</h2>
+      <p>The Parable experiments did not remain contained to their labs. Some subjects escaped. Some bred. Some evolved into something the original researchers never intended. The forests of Stonespire Island are not merely dangerous — they are alive with things that were <em>made</em>, not born.</p>
+    </div>
+
+    <div class="full-bleed reveal" style="margin:2rem 0;">
+      <img src="images/elemental-dire-wolves.png" alt="Elemental Dire Wolves" style="filter:brightness(0.4) saturate(0.75);">
+      <div class="caption">
+        <p class="eyebrow">Stonespire Island</p>
+        <h2>Ogzul's Pack</h2>
+        <p style="color:var(--muted);">Experiments that escaped the lab. Something the Parable researchers never intended.</p>
+      </div>
+    </div>
+
+    <div class="scene-card reveal">
+      <h3 style="margin-bottom:0.75rem;">Ogzul's Pack — Encounter Notes</h3>
+      <p>All of Ogzul's pack can cast the <em>Message</em> cantrip as a bonus action at will. During the <strong>first encounter in Session 1</strong> (Area 6 — Edge of the Forest), only three wolves are present: the <em>Earth Dire Wolf</em>, the <em>Frost Dire Wolf</em>, and the <em>Fire Dire Wolf</em>. Ogzul himself does not appear. The Storm Dire Wolf is not present either.</p>
+      <div class="dm-note" style="margin-top:1rem;">
+        <span class="dm-note-label">Speak with Animals</span>
+        If the party has Speak with Animals active, they may attempt to communicate with the wolves. Regardless of whether conversation or combat follows, a distant howl interrupts the wolves — the Frost and Fire wolves quickly depart into the woods. The Earth Dire Wolf <strong>(Agrom)</strong> stays behind. He thinks it unwise to leave them wandering. He is less easy to sway passively than the others.
+      </div>
+    </div>
+
+    <!-- EARTH DIRE WOLF -->
+    <div class="stat-block reveal">
+      <div class="stat-block-name">Earth Dire Wolf <em style="font-family:'Cinzel',serif;font-size:0.75rem;font-style:normal;">(Agrom)</em> <span class="cr-badge">CR 8</span></div>
+      <span class="stat-block-type">Large Elemental · Neutral · Created by the Parable Experiments</span>
+      <p style="font-size:clamp(0.82rem,1.8vw,0.93rem);color:var(--muted);margin-bottom:0.85rem;font-style:italic;">A massive wolf with matted brown fur growing in thick clusters. Thick roots coated in black-green ichor run beneath its skin like exposed veins. Retractable claws resemble jagged stone shards; elongated fangs drip toxic poison. Its eyes glow emerald green when gathering magical power.</p>
+      <div class="stat-line">
+        <span><strong>AC</strong> 17 (Natural Armor)</span>
+        <span><strong>HP</strong> 136 (16d10 + 48)</span>
+        <span><strong>Speed</strong> 50 ft., Burrow 20 ft.</span>
+      </div>
+      <div class="stat-abilities">
+        <div><span class="ability">STR</span><span class="score">22</span><span class="modifier">(+6)</span></div>
+        <div><span class="ability">DEX</span><span class="score">14</span><span class="modifier">(+2)</span></div>
+        <div><span class="ability">CON</span><span class="score">17</span><span class="modifier">(+3)</span></div>
+        <div><span class="ability">INT</span><span class="score">6</span><span class="modifier">(−2)</span></div>
+        <div><span class="ability">WIS</span><span class="score">14</span><span class="modifier">(+2)</span></div>
+        <div><span class="ability">CHA</span><span class="score">10</span><span class="modifier">(+0)</span></div>
+      </div>
+      <div class="stat-line">
+        <span><strong>Saves</strong> Str +9, Con +6</span>
+        <span><strong>Skills</strong> Perception +5, Stealth +5, Survival +5</span>
+        <span><strong>Resistances</strong> Poison, Bludgeoning</span>
+        <span><strong>Immunities</strong> Poisoned (condition)</span>
+        <span><strong>Senses</strong> Darkvision 120 ft., Tremorsense 60 ft.</span>
+      </div>
+      <div class="stat-trait"><strong>Pack Hunter.</strong> Advantage on attacks if an ally is within 5 feet of the target.</div>
+      <div class="stat-trait"><strong>Earthen Resilience.</strong> While standing on natural earth or stone, regains 10 HP at the start of its turn.</div>
+      <div class="stat-trait"><strong>Toxic Blood.</strong> Creatures striking it in melee take 5 (1d10) poison damage.</div>
+      <div class="stat-action-header">Actions</div>
+      <div class="stat-trait"><strong>Multiattack.</strong> One Bite and one Claw.</div>
+      <div class="stat-trait"><strong>Poison Fang.</strong> +9 to hit, Reach 10 ft. Hit: 20 (2d12 + 7) piercing + 13 (3d8) poison. DC 16 Constitution save or become Poisoned for 1 minute.</div>
+      <div class="stat-trait"><strong>Root Claw.</strong> +9 to hit, Reach 10 ft. Hit: 17 (2d8 + 8) slashing. DC 16 Strength save or Restrained until end of next turn.</div>
+      <div class="stat-trait"><strong>Verdant Rupture (Recharge 5–6).</strong> 20-foot radius. DC 16 Dexterity save. Failure: 27 (6d8) bludgeoning + 13 (3d8) poison, knocked prone.</div>
+      <div class="stat-trait" style="color:var(--gold-dim);font-style:italic;font-size:0.84rem;margin-top:0.85rem;">Special: Can cast Spike Growth once per combat.</div>
+    </div>
+
+    <!-- FIRE DIRE WOLF -->
+    <div class="stat-block reveal">
+      <div class="stat-block-name">Fire Dire Wolf <span class="cr-badge">CR 8</span></div>
+      <span class="stat-block-type">Large Elemental · Neutral · Created by the Parable Experiments</span>
+      <p style="font-size:clamp(0.82rem,1.8vw,0.93rem);color:var(--muted);margin-bottom:0.85rem;font-style:italic;">A massive wolf with black fur broken by glowing ember veins beneath the surface. Its breath releases visible heat distortions and its eyes burn like molten coals.</p>
+      <div class="stat-line">
+        <span><strong>AC</strong> 17</span>
+        <span><strong>HP</strong> 128 (15d10 + 45)</span>
+        <span><strong>Speed</strong> 60 ft.</span>
+      </div>
+      <div class="stat-abilities">
+        <div><span class="ability">STR</span><span class="score">22</span><span class="modifier">(+6)</span></div>
+        <div><span class="ability">DEX</span><span class="score">16</span><span class="modifier">(+3)</span></div>
+        <div><span class="ability">CON</span><span class="score">16</span><span class="modifier">(+3)</span></div>
+        <div><span class="ability">INT</span><span class="score">6</span><span class="modifier">(−2)</span></div>
+        <div><span class="ability">WIS</span><span class="score">14</span><span class="modifier">(+2)</span></div>
+        <div><span class="ability">CHA</span><span class="score">10</span><span class="modifier">(+0)</span></div>
+      </div>
+      <div class="stat-line">
+        <span><strong>Immunities</strong> Fire (damage)</span>
+        <span><strong>Senses</strong> Darkvision 60 ft.</span>
+      </div>
+      <div class="stat-trait"><strong>Living Inferno.</strong> Melee attackers take 7 (2d6) fire damage.</div>
+      <div class="stat-action-header">Actions</div>
+      <div class="stat-trait"><strong>Multiattack.</strong> One Bite and one Claw.</div>
+      <div class="stat-trait"><strong>Flame Bite.</strong> +9 to hit. Hit: 18 (2d10 + 7) piercing + 13 (3d8) fire. Target ignites and takes 2d6 fire damage each round until extinguished.</div>
+      <div class="stat-trait"><strong>Molten Claw.</strong> +9 to hit. Hit: 19 (2d8 + 8) slashing + 7 (2d6) fire.</div>
+      <div class="stat-trait"><strong>Inferno Howl (Recharge 5–6).</strong> 30-foot cone. DC 16 Dexterity save. Failure: 42 (12d6) fire damage.</div>
+      <div class="stat-trait" style="color:var(--gold-dim);font-style:italic;font-size:0.84rem;margin-top:0.85rem;">Special: Can cast Fire Breath through its nostrils once per combat.</div>
+    </div>
+
+    <!-- FROST DIRE WOLF -->
+    <div class="stat-block reveal">
+      <div class="stat-block-name">Frost Dire Wolf <span class="cr-badge">CR 8</span></div>
+      <span class="stat-block-type">Large Elemental · Neutral · Created by the Parable Experiments</span>
+      <p style="font-size:clamp(0.82rem,1.8vw,0.93rem);color:var(--muted);margin-bottom:0.85rem;font-style:italic;">A giant white-furred predator coated in rime and frost. Icicles hang from its mane and tail while freezing mist escapes its jaws.</p>
+      <div class="stat-line">
+        <span><strong>AC</strong> 17</span>
+        <span><strong>HP</strong> 140 (16d10 + 48)</span>
+        <span><strong>Speed</strong> 50 ft.</span>
+      </div>
+      <div class="stat-abilities">
+        <div><span class="ability">STR</span><span class="score">22</span><span class="modifier">(+6)</span></div>
+        <div><span class="ability">DEX</span><span class="score">14</span><span class="modifier">(+2)</span></div>
+        <div><span class="ability">CON</span><span class="score">17</span><span class="modifier">(+3)</span></div>
+        <div><span class="ability">INT</span><span class="score">6</span><span class="modifier">(−2)</span></div>
+        <div><span class="ability">WIS</span><span class="score">14</span><span class="modifier">(+2)</span></div>
+        <div><span class="ability">CHA</span><span class="score">10</span><span class="modifier">(+0)</span></div>
+      </div>
+      <div class="stat-line">
+        <span><strong>Immunities</strong> Cold (damage)</span>
+        <span><strong>Resistances</strong> Bludgeoning</span>
+        <span><strong>Senses</strong> Darkvision 60 ft.</span>
+      </div>
+      <div class="stat-trait"><strong>Frozen Hide.</strong> Melee attackers take 5 (1d10) cold damage.</div>
+      <div class="stat-trait"><strong>Winter Hunter.</strong> Ignores ice and snow difficult terrain.</div>
+      <div class="stat-action-header">Actions</div>
+      <div class="stat-trait"><strong>Multiattack.</strong> One Bite and one Claw.</div>
+      <div class="stat-trait"><strong>Frost Fang.</strong> +9 to hit. Hit: 20 (2d12 + 7) piercing + 10 (3d6) cold. Target's speed reduced by 15 feet.</div>
+      <div class="stat-trait"><strong>Ice Claw.</strong> +9 to hit. Hit: 17 (2d8 + 8) slashing + 7 (2d6) cold.</div>
+      <div class="stat-trait"><strong>Glacial Breath (Recharge 5–6).</strong> 30-foot cone. DC 16 Constitution save. Failure: 36 (8d8) cold, Restrained in ice.</div>
+      <div class="stat-trait" style="color:var(--gold-dim);font-style:italic;font-size:0.84rem;margin-top:0.85rem;">Special: Can cast Ray of Frost (3d8 damage) once per combat.</div>
+    </div>
+
+    <!-- STORM DIRE WOLF -->
+    <div class="stat-block reveal">
+      <div class="stat-block-name">Storm Dire Wolf <span class="cr-badge">CR 8</span></div>
+      <span class="stat-block-type">Large Elemental · Neutral · Created by the Parable Experiments</span>
+      <p style="font-size:clamp(0.82rem,1.8vw,0.93rem);color:var(--muted);margin-bottom:0.85rem;font-style:italic;">A gray-furred wolf with faint arcs of electricity running through its coat. Thunder rumbles softly whenever it moves.</p>
+      <div class="stat-line">
+        <span><strong>AC</strong> 18</span>
+        <span><strong>HP</strong> 126 (15d10 + 45)</span>
+        <span><strong>Speed</strong> 60 ft.</span>
+      </div>
+      <div class="stat-abilities">
+        <div><span class="ability">STR</span><span class="score">22</span><span class="modifier">(+6)</span></div>
+        <div><span class="ability">DEX</span><span class="score">18</span><span class="modifier">(+4)</span></div>
+        <div><span class="ability">CON</span><span class="score">16</span><span class="modifier">(+3)</span></div>
+        <div><span class="ability">INT</span><span class="score">6</span><span class="modifier">(−2)</span></div>
+        <div><span class="ability">WIS</span><span class="score">14</span><span class="modifier">(+2)</span></div>
+        <div><span class="ability">CHA</span><span class="score">10</span><span class="modifier">(+0)</span></div>
+      </div>
+      <div class="stat-line">
+        <span><strong>Immunities</strong> Lightning (damage)</span>
+        <span><strong>Resistances</strong> Thunder</span>
+        <span><strong>Senses</strong> Darkvision 60 ft.</span>
+      </div>
+      <div class="stat-trait"><strong>Lightning Reflexes.</strong> Advantage on Dexterity saving throws.</div>
+      <div class="stat-trait"><strong>Static Aura.</strong> Creatures starting their turn within 10 feet take 1d8 lightning damage.</div>
+      <div class="stat-action-header">Actions</div>
+      <div class="stat-trait"><strong>Multiattack.</strong> One Bite and one Claw.</div>
+      <div class="stat-trait"><strong>Lightning Fang.</strong> +9 to hit. Hit: 18 (2d10 + 7) piercing + 14 (4d6) lightning.</div>
+      <div class="stat-trait"><strong>Thunder Claw.</strong> +9 to hit. Hit: 18 (2d8 + 8) slashing + 7 (2d6) thunder. DC 16 Strength save or pushed 15 feet.</div>
+      <div class="stat-trait"><strong>Tempest Howl (Recharge 5–6).</strong> 30-foot radius. DC 16 Constitution save. Failure: 31 (7d8) thunder, Deafened, Knocked prone.</div>
+      <div class="stat-trait" style="color:var(--gold-dim);font-style:italic;font-size:0.84rem;margin-top:0.85rem;">Special: Can cast Thunderstep once per combat.</div>
+    </div>
+
+    <div class="rune-divider">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+    <!-- OGZUL -->
+    <div class="stat-block reveal" style="border-top-color:#a93226;border-color:rgba(180,50,50,0.4);">
+      <div class="stat-block-name" style="color:#c0392b;">Ogzul, Progenitor of the Pack <span class="cr-badge" style="background:#8b1a1a;">CR 16</span></div>
+      <span class="stat-block-type">Subject O-1 · "Adaptive Apex Prototype" · Huge Elemental Monstrosity · Neutral Evil</span>
+      <p style="font-size:clamp(0.82rem,1.8vw,0.93rem);color:var(--muted);margin-bottom:0.85rem;font-style:italic;">Standing nearly 22 feet tall at the shoulder, Ogzul is a terrifying fusion of elemental energies. His fur is black as midnight. His mane contains glowing embers hidden beneath the fur, creating the appearance of smoldering ash — wisps of smoke drift continuously from his shoulders. Electric-blue energy burns in his eyes. His fangs and tail are coated in supernatural frost. Long black claws drip green ichor onto the ground. The surviving Parable records classify him as an extinction-level predator.</p>
+      <div class="stat-line">
+        <span><strong>AC</strong> 20</span>
+        <span><strong>HP</strong> 315 (30d12 + 120)</span>
+        <span><strong>Speed</strong> 60 ft., Burrow 20 ft.</span>
+      </div>
+      <div class="stat-abilities">
+        <div><span class="ability">STR</span><span class="score">28</span><span class="modifier">(+9)</span></div>
+        <div><span class="ability">DEX</span><span class="score">18</span><span class="modifier">(+4)</span></div>
+        <div><span class="ability">CON</span><span class="score">26</span><span class="modifier">(+8)</span></div>
+        <div><span class="ability">INT</span><span class="score">10</span><span class="modifier">(+0)</span></div>
+        <div><span class="ability">WIS</span><span class="score">18</span><span class="modifier">(+4)</span></div>
+        <div><span class="ability">CHA</span><span class="score">18</span><span class="modifier">(+4)</span></div>
+      </div>
+      <div class="stat-line">
+        <span><strong>Saves</strong> Str +15, Dex +10, Con +14, Wis +10</span>
+        <span><strong>Skills</strong> Perception +16, Survival +10, Stealth +10, Intimidation +10</span>
+        <span><strong>Resistances</strong> Cold, Fire, Lightning, Poison, Thunder</span>
+        <span><strong>Immunities</strong> Poison (damage); Poisoned, Frightened (conditions)</span>
+        <span><strong>Senses</strong> Darkvision 240 ft., Tremorsense 120 ft.</span>
+      </div>
+      <div class="stat-trait"><strong>Legendary Resistance (3/Day).</strong> If Ogzul fails a saving throw, he can choose to succeed instead.</div>
+      <div class="stat-trait"><strong>Alpha of the First Pack.</strong> All wolves within 120 feet gain: advantage on attacks, advantage on fear saves, +10 ft. speed.</div>
+      <div class="stat-trait"><strong>Elemental Hide.</strong> Melee attackers take 2d6 Fire, Cold, Lightning, or Poison damage (Ogzul's choice).</div>
+      <div class="stat-trait"><strong>Experimental Regeneration.</strong> Regains 15 HP at the start of each turn. Disabled until end of next turn if Ogzul takes Force damage.</div>
+      <div class="stat-trait"><strong>Apex Predator.</strong> Cannot be magically slowed. Opportunity attacks against him are made with disadvantage.</div>
+      <div class="stat-action-header">Actions</div>
+      <div class="stat-trait"><strong>Multiattack.</strong> One Bite and two Claws.</div>
+      <div class="stat-trait"><strong>Frostfang Bite.</strong> +15 to hit. Hit: 31 (4d10 + 9) piercing + 13 (3d8) cold + 13 (3d8) lightning. DC 22 Constitution save or Speed becomes 0 until end of next turn.</div>
+      <div class="stat-trait"><strong>Ichor Claw.</strong> +15 to hit. Hit: 27 (4d8 + 9) slashing + 13 (3d8) poison. DC 22 Constitution save or Poisoned for 1 minute (3d6 poison damage each round).</div>
+      <div class="stat-trait"><strong>Frozen Tail.</strong> +15 to hit. Hit: 26 (3d10 + 9) bludgeoning + 14 (4d6) cold. DC 22 Strength save or knocked prone.</div>
+      <div class="stat-trait"><strong>Elemental Cataclysm (Recharge 5–6).</strong> 40-foot radius. DC 22 Dexterity save. Failure: 6d6 Fire + 6d6 Cold + 6d6 Lightning + 6d6 Poison, knocked prone. Ground becomes difficult terrain.</div>
+      <div class="stat-action-header">Bonus Action</div>
+      <div class="stat-trait"><strong>Predator's Leap.</strong> Leap up to 40 feet. Creatures within 10 feet of landing: DC 22 Dexterity save or 4d6 bludgeoning and prone.</div>
+      <div class="stat-action-header">Legendary Actions (3/Round, end of another creature's turn)</div>
+      <div class="stat-trait"><strong>Detect.</strong> Ogzul makes a Perception check.</div>
+      <div class="stat-trait"><strong>Claw Attack.</strong> Ogzul makes one Ichor Claw attack.</div>
+      <div class="stat-trait"><strong>Elemental Surge (2 Actions).</strong> Creatures within 10 feet take 3d6 elemental damage.</div>
+      <div class="stat-trait"><strong>Pack Command (3 Actions).</strong> Up to three allied wolves move up to their speed and make one attack each.</div>
+      <div class="stat-action-header">Lair Actions (Stonespire Jungle, Initiative Count 20)</div>
+      <div class="stat-trait"><strong>Grasping Roots.</strong> One creature Ogzul can see: DC 20 Strength save or Restrained until end of next round.</div>
+      <div class="stat-trait"><strong>Storm Pulse.</strong> One creature Ogzul can see takes 4d8 lightning damage.</div>
+      <div class="stat-trait"><strong>Predator's Howl.</strong> All allied wolves move up to their speed without provoking opportunity attacks.</div>
+      <div class="stat-trait" style="color:var(--gold-dim);font-style:italic;font-size:0.84rem;margin-top:0.85rem;">Special: Can cast Counterspell (level 5), Fireball, Thunderstep, Hunger of Hadar, and Wall of Stone once each per combat. Misty Step at will as a bonus action.</div>
+      <div class="dm-note" style="margin-top:1.25rem;border-color:rgba(180,50,50,0.3);">
+        <span class="dm-note-label" style="color:#8b1a1a;">Parable Research Record</span>
+        Designation: Subject O-1 · Experiment: Adaptive Apex Predator Program · Status: Escaped · Termination Attempts: Failed · Threat Assessment: Extreme<br>
+        <em>"Should Subject O-1 establish a breeding population, immediate evacuation of surrounding territories is advised." — Recovered Parable Research Log, Stonespire Island</em>
+      </div>
+    </div>
+
+    <div class="rune-divider">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+    <!-- NIGHTBLOOM SERAPHICA -->
+    <div class="reveal">
+      <div class="section-label">Flora of Stonespire</div>
+      <h3 style="font-size:clamp(1rem,3vw,1.4rem);margin-bottom:0.5rem;">Nightbloom Seraphica</h3>
+      <p style="font-style:italic;color:var(--muted);font-size:clamp(0.85rem,2vw,0.97rem);">"Beauty that stills the body, balm that saves the soul."</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(1.5rem,4vw,3rem);align-items:start;margin:1.5rem 0;" class="reveal">
+      <div style="overflow:hidden;border-radius:2px;border:1px solid var(--gold-dim);">
+        <img src="images/nightbloom.png" alt="Nightbloom Seraphica" style="width:100%;display:block;filter:brightness(0.65) saturate(0.9);">
+      </div>
+      <div>
+        <div class="stat-block" style="margin:0;">
+          <div class="stat-block-name">Nightbloom Seraphica <span class="cr-badge" style="font-size:0.48rem;">RARE FLORA</span></div>
+          <span class="stat-block-type">Large Plant · Unaligned · Stonespire Island</span>
+          <p style="font-size:clamp(0.82rem,1.8vw,0.93rem);color:var(--muted);margin-bottom:0.85rem;font-style:italic;">Its petals shimmer in hues of blue and lavender, surrounding a radiant bed of silver-white pollen. From its heart rises a single pistil of deep purple and black, dancing with an almost hypnotic grace in even the slightest breeze. Legends tell of ancient alchemists and healers who prized this flower for its dual nature — deadly to the unwary, life-saving in the hands of the knowledgeable.</p>
+          <div class="stat-line">
+            <span><strong>AC</strong> 12 (Natural Armor)</span>
+            <span><strong>HP</strong> 22 (4d10)</span>
+            <span><strong>Speed</strong> 0 ft.</span>
+          </div>
+          <div class="stat-abilities">
+            <div><span class="ability">STR</span><span class="score">10</span><span class="modifier">(+0)</span></div>
+            <div><span class="ability">DEX</span><span class="score">12</span><span class="modifier">(+1)</span></div>
+            <div><span class="ability">CON</span><span class="score">13</span><span class="modifier">(+1)</span></div>
+            <div><span class="ability">INT</span><span class="score">8</span><span class="modifier">(−1)</span></div>
+            <div><span class="ability">WIS</span><span class="score">14</span><span class="modifier">(+2)</span></div>
+            <div><span class="ability">CHA</span><span class="score">10</span><span class="modifier">(+0)</span></div>
+          </div>
+          <div class="stat-line">
+            <span><strong>Immunities</strong> Poison, Psychic (damage)</span>
+            <span><strong>Rarity</strong> Rare (DC 18 Survival to locate)</span>
+          </div>
+          <div class="stat-trait"><strong>Plant Nature.</strong> Immune to poison and psychic damage.</div>
+          <div class="stat-trait"><strong>False Attractant.</strong> Emits a subtle sweet fragrance in a 30-foot radius. Creatures entering must succeed on a DC 14 Wisdom (Perception) check or be charmed until end of next turn, using their action to approach the flower.</div>
+          <div class="stat-trait"><strong>Paralyzing Stinger.</strong> A creature touching the pistil or struck by it must succeed on a DC 15 Constitution save or be Paralyzed for 1 minute. Repeatable at end of each turn.</div>
+          <div class="stat-trait"><strong>Dual Nature (Pollen).</strong> The pollen at the base of the pistil acts as a natural antivenom. A creature poisoned by a venomous creature can be cured if the pollen is properly prepared.</div>
+          <div class="stat-action-header">Actions</div>
+          <div class="stat-trait"><strong>Pistil Lash.</strong> Melee Weapon Attack: +4 to hit, reach 5 ft. Hit: 5 (1d6 + 2) piercing. DC 15 Constitution save or Paralyzed for 1 minute.</div>
+          <div class="stat-action-header" style="margin-top:1.1rem;">Harvesting</div>
+          <div class="stat-trait"><strong>Toxin Gland.</strong> DC 15 Medicine or Nature check + thieves' tools to extract carefully. One use of paralyzing poison (DC 15 Con save or paralyzed 1 minute). Market value: <em>1,000 gp</em>.</div>
+          <div class="stat-trait"><strong>Pollen.</strong> DC 15 Medicine check. Acts as antivenom against poison effects. Market value: <em>250 gp</em>.</div>
+          <div class="stat-trait"><strong>Intact Flower.</strong> Market value: <em>500 gp</em>.</div>
+          <div class="dm-note" style="margin-top:1rem;">
+            <span class="dm-note-label">DM Note</span>
+            Rarely found outside ancient groves, moonlit clearings, or places where the veil between life and death is thin. Blooms only once every three years under the light of a full moon. Stonespire's unique magical environment may support year-round growth in isolated locations.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- IMPORTANT FIGURES -->
+<div id="figures">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-label">Key Players</div>
+      <h2>Important Figures</h2>
+      <p>Not everyone connected to the Parable Project is dead, missing, or unknown. Some shaped what was done on Stonespire Island. Some are still shaping it.</p>
+    </div>
+
+    <div class="figure-card reveal">
+      <div style="height:clamp(200px,35vw,340px);overflow:hidden;position:relative;">
+        <img src="images/first-view-of-orwells-balloon.png" alt="First View of Orwell's Balloon" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.45) saturate(0.75);">
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom, transparent 40%, rgba(26,18,8,0.95));"></div>
+        <div style="position:absolute;bottom:1.25rem;left:clamp(1.5rem,4vw,2.5rem);">
+          <div class="figure-name">Dr. Orwell</div>
+          <div class="figure-subtitle">Githyanki Scientist · Architect of the Parable Project</div>
+        </div>
+      </div>
+      <div class="figure-body">
+        <p>Dr. Orwell is a Githyanki scientist who has spent his life studying Ghaik (mind flayer) anatomy — particularly the parasites and the psionic surge they produce during ceremorphosis. He has also dedicated considerable time to studying Illithid minds post-transformation.</p>
+        <p>By infusing ancient arcane magic into a medical process that combines the form-altering capabilities of mind flayer parasites with the biological adaptability of changelings, Dr. Orwell stands on the brink of creating something rare and new: a way to <em>gift</em> creatures with rare and unnatural abilities through biological mutation. His most promising current project is called <em>The Parable Project</em>, conducted entirely on Stonespire Island.</p>
+        <p>His age is unknown. He has spent the majority of his life in the Astral Plane, where he does not age — leaving only when his research or experiments require it. He is involved in numerous projects across various locations and planes.</p>
+        <ul class="power-list" style="margin-top:1.25rem;">
+          <li><strong>Travel Method</strong>Dr. Orwell uses a hot air balloon paired with teleportation magic to navigate the upper Spire and move around the island — avoiding the dense, impassable forests entirely.</li>
+          <li><strong>The Leather Satchel</strong>He can almost always be found carrying a large leather satchel with a long strap draped over one shoulder and across his chest. Medical equipment, mostly — but no one truly knows the full contents. He never parts with it.</li>
+          <li><strong>Hidden Power</strong>Few are aware that Dr. Orwell is also a very powerful wizard.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="figure-card reveal">
+      <div style="height:clamp(200px,35vw,340px);overflow:hidden;position:relative;background:rgba(13,8,8,0.9);">
+        <img src="images/seven-character-card.png" alt="Subject Seven" style="width:100%;height:100%;object-fit:cover;object-position:top center;filter:brightness(0.4) saturate(0.6);">
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom, transparent 40%, rgba(13,8,8,0.97));"></div>
+        <div style="position:absolute;bottom:1.25rem;left:clamp(1.5rem,4vw,2.5rem);">
+          <div class="figure-name" style="color:#c0392b;">Seven <em style="font-family:'Cinzel',serif;font-size:0.85rem;color:var(--muted);font-style:normal;">— Subject 007</em></div>
+          <div class="figure-subtitle">Human (apparent) · Aberrant Mind Sorcerer · The First to Escape</div>
+        </div>
+      </div>
+      <div class="figure-body">
+        <p>Seven was the seventh person placed in the Well. He managed to escape before the rest of the party awoke from their slumber. The experiment affected him differently — amplifying and accelerating whatever process was taking place in ways that remain, to this day, obscure.</p>
+        <p>He has no recollection of any life before the Well. He appears human. He trusts no one on instinct. Every interaction is filtered through the lens of what was done to him in that chamber. He reached out to Roscoe telepathically at the end of Session 1. That was not an accident. But reaching out and revealing himself are very different things.</p>
+        <ul class="power-list" style="margin-top:1.25rem;">
+          <li><strong style="color:#c0392b;">Highly Suspicious</strong>Seven trusts no one on instinct and is hesitant to form any alliance. His isolation since escaping the Well has only deepened this trait.</li>
+          <li><strong style="color:#c0392b;">Memory Blank</strong>He has no past. No name he remembers. No family, no home, no face that predates the experiment. He is, in every sense, a product of the Well — and he knows it.</li>
+          <li><strong style="color:#c0392b;">The Voice</strong>The telepathic message Roscoe received at the end of Session 1 came from Seven. It was not a trap. He has not reached out again. Yet.</li>
+        </ul>
+        <div class="dm-note" style="margin-top:1.5rem;border-color:rgba(180,50,50,0.4);">
+          <span class="dm-note-label" style="color:#8b1a1a;">DM Secret — Do Not Share with Players</span>
+          Seven is actually a changeling. His gift manifests as <strong>power absorption</strong> — he is an empath who can temporarily use the gifts of others he is near for a short time. This explains why the experiment affected him differently: his adaptive biology accelerated and amplified the process in unpredictable ways. The party will discover this later, through play.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ITEMS & NOTES -->
+<div id="items" style="background: rgba(0,0,0,0.2);">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-label">Rare Flora &amp; Notable Items</div>
+      <h2>Items &amp; Notes</h2>
+      <p>Stonespire Island's unique magical environment has produced flora, artifacts, and phenomena found nowhere else in Faerûn. Some are harvested, some are hunted, and some simply find their way into the party's hands at exactly the wrong moment.</p>
+    </div>
+
+    <div class="location-card reveal">
+      <h3>The Nightbloom Seraphica</h3>
+      <p>A rare and exquisite flower that blooms once every three years under a full moon. Its petals shimmer in hues of blue and lavender surrounding a radiant bed of silver-white pollen — and from its heart rises a single pistil of deep purple and black, carrying a paralyzing toxin of extraordinary potency. Ancient alchemists prized it for its dual nature: deadly to the unwary, life-saving in skilled hands.</p>
+      <ul class="power-list" style="margin-top:1rem;">
+        <li>
+          <strong>Paralyzing Toxin Gland</strong>
+          One use of injectable paralytic. DC 15 Constitution save or Paralyzed for 1 minute. Requires DC 15 Medicine or Nature + thieves' tools to extract safely. Market value: <em>1,000 gp</em>.
+        </li>
+        <li>
+          <strong>Pollen (Antivenom)</strong>
+          When properly prepared (DC 15 Medicine), neutralizes poison effects on a creature. Acts as a complete antivenom. Market value: <em>250 gp</em>.
+        </li>
+        <li>
+          <strong>Intact Flower</strong>
+          Extremely rare. Sought by alchemists, healers, and collectors across Faerûn. Market value: <em>500 gp</em>.
+        </li>
+      </ul>
+      <div class="dm-note" style="margin-top:1rem;">
+        <span class="dm-note-label">DM Note — Voss Connection</span>
+        Voss Angmar's last memory before the experiment involves a rare flower he stopped to observe — a moon drop daisy. The Nightbloom Seraphica may resonate with Voss in an unexpected way when first encountered. His druidic instincts might draw him toward it before the danger becomes apparent.
+      </div>
+    </div>
+
+    <div class="location-card reveal">
+      <h3>Arcane Tattoos — The Parable Catalog</h3>
+      <p>Each member of the party carries a small arcane tattoo behind their ear — three digits, 001 through 006. The tattoos are sophisticated arcane cataloguing sigils, impossible to remove by mundane means. They respond to certain magical fields on the island, functioning as both identity markers and tracking beacons for those who built this place.</p>
+      <div class="dm-note" style="margin-top:1rem;">
+        <span class="dm-note-label">DM Note</span>
+        The tattoos will eventually serve as a plot thread. Those who remain part of the Parable Project's network can detect the sigils. The party does not yet know the tattoos exist — only a DC 10 Perception check searching themselves carefully will reveal them. What they mean, and who is watching, is a mystery for later.
+      </div>
+    </div>
+
+    <div class="location-card reveal">
+      <h3>The Silver Residue — Tube Fluid</h3>
+      <p>The thick silver liquid that dripped from the tubes in the Well of Seven has no smell, no taste (for those reckless enough to try), and does not react to fire or heat. It dries to a faint metallic sheen on any surface. It is not blood. It is not any known alchemical compound. It is the medium through which the gifts were delivered — and traces of it remain in the party's bloodstream indefinitely.</p>
+      <div class="dm-note" style="margin-top:1rem;">
+        <span class="dm-note-label">DM Note</span>
+        A DC 15 Arcana or Medicine check on a sample of the dried residue reveals that it carries an incredibly faint magical resonance — not a spell, but something more fundamental. As though the magic is woven into the molecular structure. A higher-level character or specialist NPC might identify it as a form of arcane catalyst, never before documented.
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- MYSTERIES -->
 <div id="mysteries">
   <div class="section-wrap">
@@ -1054,6 +1627,16 @@
       </li>
     </ul>
 
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(0.75rem,2vw,1.5rem);margin:2.5rem 0;" class="reveal">
+      <div style="overflow:hidden;border-radius:2px;height:clamp(180px,30vw,280px);border:1px solid var(--gold-dim);">
+        <img src="images/the-well-of-seven.png" alt="The Well of Seven" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.5) saturate(0.7);">
+      </div>
+      <div style="overflow:hidden;border-radius:2px;height:clamp(180px,30vw,280px);border:1px solid var(--gold-dim);">
+        <img src="images/nautiloid.png" alt="The Nautiloid" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.45) saturate(0.7);">
+      </div>
+    </div>
+    <p class="reveal" style="text-align:center;font-style:italic;color:var(--muted);font-size:clamp(0.78rem,1.8vw,0.88rem);margin-top:-1rem;">The Well of Seven — and what eventually docks into the Spire.</p>
+
     <div class="arcane-section reveal" style="margin-top:3rem;">
       <div class="arcane-img">
         <img src="images/arcane-schools.jpg" alt="Arcane Schools of Magic" />
@@ -1064,6 +1647,15 @@
         <p>Each school corresponds to a distinct color aura the party may begin to glimpse around themselves and each other. As the campaign progresses, the colors become more visible to those with arcane sight — and to those who built the island, a beacon.</p>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="full-bleed">
+  <img src="images/the-meadow.png" alt="The Meadow — Stonespire Island" />
+  <div class="caption">
+    <p class="eyebrow">Stonespire Island</p>
+    <h2>The Meadow Above</h2>
+    <p style="color:var(--muted);">The surface feels like a breath of air. The earth below feels like a grave.</p>
   </div>
 </div>
 
@@ -1103,9 +1695,24 @@
           <p>The humming fades entirely. You feel a slight tug — then with a wet <em>splat</em>, all seven tubes drop through the hole and hang swaying in the center of the room, dripping a thick silver residue onto the immaculately carved stone floor. Strange runes and glyphs cover the floor where the light falls brightest. Behind each cradle sits a wooden chest. Your equipment — and your answers — wait to be found.</p>
         </div>
 
+        <div style="margin:1.25rem 0;overflow:hidden;border-radius:2px;height:clamp(180px,35vw,320px);">
+          <img src="images/the-well-of-seven.png" alt="The Well of Seven" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.45) saturate(0.7);">
+        </div>
+
         <div class="dm-note">
           <span class="dm-note-label">DM Notes</span>
           The chamber is round with a slightly inclined ceiling rising toward the center hole (15ft diameter). The room is 60ft in diameter. The walls emit a faint silver/blue light. The wooden chamber door is locked from the outside. Each wooden chest behind a cradle contains that character's gear and weapons.
+        </div>
+
+        <div class="dm-note" style="margin-top:1rem;">
+          <span class="dm-note-label">Last Memories — Tell Each Player as They Wake</span>
+          When a character regains their senses and asks what they last remember, share their individual last memory privately or at the table. These are given to each player separately as their character's final waking moment before the experiment.<br><br>
+          <strong>Roscoe Tealeaf:</strong> <em>"In the shadow of that evening you remember seeing a shimmering blue light fall from the sky in the distance. The memory is blurry at first but returns as you focus on it. To you it seemed to fall at the pace of a snowflake, gracefully slow. Captivated by its beauty you took a moment to appreciate this rare anomaly. Then you heard a snap, turned around, and were immediately impacted with a wave of sky blue light that quickly turned white and blinded you. You remember hearing an exhausted, breathy sigh before falling into the most relaxed state of bliss you have ever known. Then darkness."</em><br><br>
+          <strong>Drogath Ironbound:</strong> <em>"Some of your memories are blurry but you clearly remember feeling a need to be somewhere. During your travels you awoke one morning to a suspicious but promising letter next to your bed roll. 'If you want answers meet me here.' The letter contained a quick hand drawn map leading you to a small town not far from Waterdeep. You had your suspicions but you went. You found a desk with a stack of parchment in the shabby abandoned home, so you picked a corner and waited. You struggle to remember the rest but you recall hearing a knock at the back door. You turned and repositioned to see it — then a flash filled the room. A strange light, a ringing in your head. After that only darkness."</em><br><br>
+          <strong>Vaelis Moonshadow:</strong> <em>"You didn't think it was important at the time but now it seems to linger in your mind. Two days prior while foraging you found an abandoned fire pit near the creek closest to your home — the ash bed still warm as you held your hand above it. One thing you do remember about your last evening home is that while you were meditating on your past in the deep hours of the night, you were pulled out of your memories by an intense light that kept you blinded and reeling. You recall the sound of a thud which seemed like it was in the distance. Then warmth, comfort, a strange sensation of detachment from the waking world."</em><br><br>
+          <strong>Voss Angmar:</strong> <em>"You recall a flower — a rare flower, vivid and red. It was the end of spring and summer's sun was taking hold. You remember spotting a single, fairly wilted moon drop daisy — these rare, pale-gold flowers bloom only when bathed in the light of a new moon during early spring. This one had somehow survived. You stopped to appreciate its resilience and beauty, and also the finality of its near future. As you took a knee near the crooked flower you remember a flash of light, then another. After that, darkness and the feeling of floating on a cloud."</em><br><br>
+          <strong>Lucia Devaux:</strong> <em>"You recall a strange figure that night — a hooded man cloaked in shadows. You remember wondering if he was part of Gideon's network. They had a certain cunning discretion about the way they moved. They seemed to pay you no mind so you paid little in return, but something about it now feels off. Vaguely, like a distant memory, you remember seeing them again but they were facing away from you. You recall approaching and laying a hand on their shoulder. Then a flash from behind you. After that, the feeling of taking flight."</em><br><br>
+          <strong>Lucien:</strong> <em>"You recall going to rest that evening with an uneasy feeling. Your pride was stirring inside your head and the echoes of their chatter kept you up late. Normally this isn't something you have to deal with, but for some reason the spirits of your fallen pride felt uneasy, anxious even. After hours of laying awake trying to calm your fallen companions — because their fear made you fearful in turn — you remember finally finding sleep. After that you remember nothing."</em>
         </div>
 
         <h3 style="margin-top:1.5rem;">Skill Checks</h3>
@@ -1192,6 +1799,10 @@
           <p>Surrounding the well is a broad clearing of lush tropical meadow, impossibly vibrant. Beyond it in every direction: dense jungle, wall to wall, blotting out the horizon and the view of anything distant.</p>
           <p>You tilt your head upward — and up, and further still — to the only landmark you can find. A massive stone spire shatters the jungle canopy and climbs thousands of feet into the air, piercing the clouds. It leans at a slight angle, catching the sunlight in a way no natural stone ever should. You are a very long way from anywhere you have ever been.</p>
         </div>
+        <div style="margin:1.25rem 0;overflow:hidden;border-radius:2px;height:clamp(180px,35vw,320px);">
+          <img src="images/well-in-the-meadow.png" alt="Well in the Meadow" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.5) saturate(0.8);">
+        </div>
+
         <div class="dm-note">
           <span class="dm-note-label">DM Notes</span>
           This is a moment of awe, not threat. Let the players breathe. There are no immediate dangers in the meadow. The Stonespire should be described as genuinely disorienting in scale. The forest surrounding the meadow is nearly impenetrable without finding a path.
@@ -1284,6 +1895,11 @@
           <p>As night begins to settle over the island, the game trail leads to a small natural shelter — a low cave formed beneath a massive boulder set into the root system of a Kapok tree of extraordinary size. The tree splits above the roots into two great trunks that eventually rejoin into a single canopy far above. The cave is dry and sheltered, and has clearly been used before, though long ago. No supplies remain. But it is defensible, and the darkness outside is total. The choice is clear.</p>
           <p>This is where they make camp. This is where the session ends.</p>
         </div>
+
+        <div style="margin:1.25rem 0;overflow:hidden;border-radius:2px;height:clamp(180px,35vw,320px);">
+          <img src="images/first-camp.png" alt="The First Camp" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.45) saturate(0.75);">
+        </div>
+
         <div class="dm-note">
           <span class="dm-note-label">DM Notes</span>
           Let the party settle and breathe. Let them talk to each other — compare notes on the tattoos behind their ears, process what they saw in the mass grave, share what they know. Don't rush to the ending. Let it arrive naturally as Roscoe drifts toward sleep.
@@ -1300,6 +1916,7 @@
         <p><em>Roscoe — as you begin to drift, a shaky voice cuts through the silence. Oddly, this voice sounds like an echo or a memory, and even though you have never heard these words before, you somehow speak them softly as you hear them:</em></p>
         <p style="color:var(--gold); font-style:italic; font-size:clamp(1rem,2.5vw,1.15rem); margin: 1.25rem 0;">"Good! You made it out of that place. Don't trust anyone! I saw what they were doing to them… I saw what they were doing to <em>us</em>. I…"</p>
         <p><em>The voice stops.</em></p>
+        <p>A gentle rain starts to fall.</p>
       </div>
     </div>
 
