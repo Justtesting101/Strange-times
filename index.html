@@ -33,15 +33,47 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.5rem;
-    padding: 0.75rem 1rem;
-    background: linear-gradient(to bottom, rgba(13,10,8,0.97), transparent);
+    background: rgba(13,10,8,0.97);
     border-bottom: 1px solid var(--gold-dim);
   }
-  nav a {
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.55rem 1rem;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    user-select: none;
+    transition: color 0.3s;
+  }
+  .nav-toggle:hover { color: var(--gold); }
+  .nav-chevron {
+    display: inline-block;
+    font-size: 0.5rem;
+    transition: transform 0.35s ease;
+    line-height: 1;
+  }
+  nav.nav-open .nav-chevron { transform: rotate(180deg); }
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.45rem 1.4rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.35s ease;
+    padding: 0 1rem;
+  }
+  nav.nav-open .nav-links {
+    max-height: 220px;
+    padding: 0.5rem 1rem 0.85rem;
+  }
+  .nav-links a {
     font-family: 'Cinzel', serif;
     font-size: 0.65rem;
     letter-spacing: 0.15em;
@@ -51,7 +83,7 @@
     transition: color 0.3s;
     white-space: nowrap;
   }
-  nav a:hover { color: var(--gold); }
+  .nav-links a:hover { color: var(--gold); }
 
   /* ── HERO ── */
   #hero {
@@ -823,27 +855,32 @@
 </head>
 <body>
 
-<nav>
-  <a href="#hero">Home</a>
-  <a href="#opening">Opening</a>
-  <a href="#party">The Party</a>
-  <a href="#world">The Island</a>
-  <a href="#locations">Locations</a>
-  <a href="#wildthings">Wild Things</a>
-  <a href="#figures">Important Figures</a>
-  <a href="#orwell">Dr. Orwell</a>
-  <a href="#seven">Subject 007</a>
-  <a href="#rebellion">The Rebellion</a>
-  <a href="#items">Items &amp; Notes</a>
-  <a href="#mysteries">Mysteries</a>
-  <a href="#session1">Session One</a>
-  <a href="#session2">Session Two</a>
-  <a href="#session3">Session Three</a>
-  <a href="#beckoning-shallows">The Beckoning Shallows</a>
-  <a href="#return-to-well">Return to the Well</a>
-  <a href="#interactions">Interactions</a>
+<nav id="site-nav">
+  <div class="nav-toggle" onclick="this.closest('nav').classList.toggle('nav-open')">
+    ☰ &nbsp; Navigation &nbsp; <span class="nav-chevron">▾</span>
+  </div>
+  <div class="nav-links">
+    <a href="#hero" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Home</a>
+    <a href="#opening" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Opening</a>
+    <a href="#party" onclick="document.getElementById('site-nav').classList.remove('nav-open')">The Party</a>
+    <a href="#world" onclick="document.getElementById('site-nav').classList.remove('nav-open')">The Island</a>
+    <a href="#locations" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Locations</a>
+    <a href="#wildthings" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Wild Things</a>
+    <a href="#figures" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Important Figures</a>
+    <a href="#orwell" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Dr. Orwell</a>
+    <a href="#seven" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Subject 007</a>
+    <a href="#rebellion" onclick="document.getElementById('site-nav').classList.remove('nav-open')">The Rebellion</a>
+    <a href="#items" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Items &amp; Notes</a>
+    <a href="#mysteries" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Mysteries</a>
+    <a href="#session1" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Session One</a>
+    <a href="#session2" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Session Two</a>
+    <a href="#session3" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Session Three</a>
+    <a href="#beckoning-shallows" onclick="document.getElementById('site-nav').classList.remove('nav-open')">The Beckoning Shallows</a>
+    <a href="#return-to-well" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Return to the Well</a>
+    <a href="#interactions" onclick="document.getElementById('site-nav').classList.remove('nav-open')">Interactions</a>
+  </div>
 </nav>
-<div style="position:fixed;top:0.6rem;right:0.9rem;font-family:'Cinzel',serif;font-size:0.45rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(150,130,90,0.2);pointer-events:none;z-index:101;user-select:none;">v25 &nbsp;·&nbsp; 2026.09.02</div>
+<div style="position:fixed;top:0.6rem;right:0.9rem;font-family:'Cinzel',serif;font-size:0.45rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(150,130,90,0.2);pointer-events:none;z-index:101;user-select:none;">v26 &nbsp;·&nbsp; 2026.09.07</div>
 
 <!-- HERO -->
 <div id="hero">
